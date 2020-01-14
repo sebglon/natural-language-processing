@@ -50,11 +50,15 @@ def load_embeddings(embeddings_path):
     #### YOUR CODE HERE ####
     ########################
 
-    # remove this when you're done
-    raise NotImplementedError(
-        "Open utils.py and fill with your code. In case of Google Colab, download"
-        "(https://github.com/hse-aml/natural-language-processing/blob/master/project/utils.py), "
-        "edit locally and upload using '> arrow on the left edge' -> Files -> UPLOAD")
+    starspace_embeddings = {}
+    dim = 0
+    for line in open(embeddings_path):
+      word, *vec = line.strip().split()
+      dim = len(vec)
+      vf = [float(v) for v in vec]
+      starspace_embeddings[word] = np.array(vf, dtype=np.float32)
+    return starspace_embeddings, dim  
+
 
 
 def question_to_vec(question, embeddings, dim):
