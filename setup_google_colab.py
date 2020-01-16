@@ -55,6 +55,7 @@ def setup_project():
     download_github_code("project/dialogue_manager.py")
     download_github_code("project/main_bot.py")
     download_github_code("project/utils.py")
+    download_github_code("data/word_embeddings.tsv")
     setup_starspace()
 
 
